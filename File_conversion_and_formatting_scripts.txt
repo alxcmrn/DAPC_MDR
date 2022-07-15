@@ -30,7 +30,7 @@ for file in $(ls GilaTrout*.recode.vcf.gz); do vcftools --gzvcf $file --012 --ou
 	
 	##convert missing data from -1 to 9, remove first column, transpose matrix and remove separators  
 
-for file in $(ls *.012); do sed 's/-1/9/g; ' $file | cut -f2- | datamash transpose | sed -e 's/\t//g' > ${file%.012}.geno; done
+for file in $(ls *.012); do sed 's/-1/9/g' $file | cut -f2- | datamash transpose | sed -e 's/\t//g' > ${file%.012}.geno; done
 
 ###############################################################
 ### convert imputed matrix to format readable by df2genind ####
