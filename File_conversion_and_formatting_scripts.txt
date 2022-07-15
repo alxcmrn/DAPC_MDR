@@ -1,0 +1,44 @@
+#######################################################################
+### format fastsimcoal genotype tables for generating missing data ####
+#######################################################################
+
+for dir in ${dirlist[@]}; do
+	cd $root/$dir;
+		for file in $(ls *.gen | sed 's/\..*$//g'); do
+			echo "Converting "$file"..." 
+			## remove monomorphic | one SNP per sequence | remove chrom,pos,ref alt fields | remove header | draw 2000 lines randomly 
+			awk 'NR==1;NR>1{for(i=5;i<NF;i++)if($(i+1)!=$i) {print;next}}' ${file}.gen | awk '!seen[$1]++' | cut -f5- | sed '1,1d' | shuf -n 2000 > ${file}.mismat;
+	done
+done
+
+#######################################################################
+### format simulated genotypes w/ missing data for LEA imputation  ####
+#######################################################################
+
+for file in $(ls *.mismat); do 
+	sed -e 's/NA/9/g; s/[[:space:]]//g' ${file} > ${file%.mismat}.geno ;
+	echo "Finished converting "${file}" for LEA "
+done
+
+###########################################################
+### convert VCFs to .geno file for LEA imputation ####
+###########################################################
+
+	## generate 012 matrix from VCF
+	
+for file in $(ls GilaTrout*.recode.vcf.gz); do vcftools --gzvcf $file --012 --out ../impute_LEA/${file%.recode.vcf.gz};done 
+	
+	##convert missing data from -1 to 9, remove first column, transpose matrix and remove separators  
+
+for file in $(ls *.012); do sed 's/-1/9/g; ' $file | cut -f2- | datamash transpose | sed -e 's/\t//g' > ${file%.012}.geno; done
+
+###############################################################
+### convert imputed matrix to format readable by df2genind ####
+###############################################################
+
+for file in $(ls GilaTrout*.lfmm_imputed.lfmm); do sed -e 's/0/00/g; s/1/01/g; s/2/22/g' $file > ${file%.lfmm_imputed.lfmm}_imputed_matrix; done 
+
+
+
+
+
