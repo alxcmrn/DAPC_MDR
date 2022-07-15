@@ -1,0 +1,194 @@
+### each of following blocks are the parameters for a fastsimcoal par file ###
+### which was run using the following line: ./fsc2702 -i /home/TurnerLab/Documents/Guilherme/Data_simulation_fsc27/shallow_div_no_gene_flow.par \ ###
+### -g -G -s0 -n 100 -c 1 -B 12 ###
+
+####################################
+### deep divergence no gene flow ###
+####################################
+
+//Number of population samples (demes)
+2
+//Population effective sizes (number of genes)
+100000
+100000
+//Samples sizes
+100
+100
+//Growth rates : negative growth implies population expansion
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+0
+//historical event: time, source, sink, migrants, new size, growth rate, migr. matrix 
+1 historical event
+50000 0 1 1 10 0 0
+//Number of independent loci [chromosome] 
+20000 0
+//Per chromosome: Number of linkage blocks
+1
+//per Block: data type, num loci, rec. rate,  mut rate and transition rate
+DNA  150  0.0 2.2E-9 0.33
+
+#####################################
+### deep divergence low gene flow ###
+#####################################
+
+//Number of population samples (demes)
+2
+//Population effective sizes (number of genes)
+100000
+100000
+//Samples sizes
+100
+100
+//Growth rates : negative growth implies population expansion
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//migration matrix 0
+0.000 0.001
+0.001 0.000
+//migration matrix 1
+0.000 0.000
+0.000 0.000
+//historical event: time, source, sink, migrants, new size, growth rate, migr. matrix 
+2 historical event
+50 0 0 0 1 0 1
+50000 0 1 1 10 0 1
+//Number of independent loci [chromosome] 
+20000 0
+//Per chromosome: Number of linkage blocks
+1
+//per Block: data type, num loci, rec. rate,  mut rate and transition rate
+DNA  150  0.0 2.2E-9 0.33
+
+######################################
+### deep divergence high gene flow ###
+######################################
+
+//Number of population samples (demes)
+2
+//Population effective sizes (number of genes)
+100000
+100000
+//Samples sizes
+100
+100
+//Growth rates : negative growth implies population expansion
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//migration matrix 0
+0.000 0.01
+0.01 0.000
+//migration matrix 1
+0.000 0.000
+0.000 0.000
+//historical event: time, source, sink, migrants, new size, growth rate, migr. matrix 
+2 historical event
+50 0 0 0 1 0 1
+50000 0 1 1 10 0 1
+//Number of independent loci [chromosome] 
+20000 0
+//Per chromosome: Number of linkage blocks
+1
+//per Block: data type, num loci, rec. rate,  mut rate and transition rate
+DNA  150  0.0 2.2E-9 0.33
+
+######################################
+### shallow divergence no gene flow ##
+######################################
+
+//Number of population samples (demes)
+2
+//Population effective sizes (number of genes)
+100000
+100000
+//Samples sizes
+100
+100
+//Growth rates : negative growth implies population expansion
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+0
+//historical event: time, source, sink, migrants, new size, growth rate, migr. matrix 
+1 historical event
+20000 0 1 1 10 0 0
+//Number of independent loci [chromosome] 
+20000 0
+//Per chromosome: Number of linkage blocks
+1
+//per Block: data type, num loci, rec. rate,  mut rate and transition rate
+DNA  150  0.0 2.2E-9 0.33
+
+#######################################
+### shallow divergence low gene flow ##
+#######################################
+
+//Number of population samples (demes)
+2
+//Population effective sizes (number of genes)
+100000
+100000
+//Samples sizes
+100
+100
+//Growth rates : negative growth implies population expansion
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//migration matrix 0
+0.000 0.001
+0.001 0.000
+//migration matrix 1
+0.000 0.000
+0.000 0.000
+//historical event: time, source, sink, migrants, new size, growth rate, migr. matrix 
+2 historical event
+50 0 0 0 1 0 1
+20000 0 1 1 10 0 1
+//Number of independent loci [chromosome] 
+20000 0
+//Per chromosome: Number of linkage blocks
+1
+//per Block: data type, num loci, rec. rate,  mut rate and transition rate
+DNA  150  0.0 2.2E-9 0.33
+
+########################################
+### shallow divergence high gene flow ##
+########################################
+
+//Number of population samples (demes)
+2
+//Population effective sizes (number of genes)
+100000
+100000
+//Samples sizes
+100
+100
+//Growth rates : negative growth implies population expansion
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//migration matrix 0
+0.000 0.01
+0.01 0.000
+//migration matrix 1
+0.000 0.000
+0.000 0.000
+//historical event: time, source, sink, migrants, new size, growth rate, migr. matrix 
+2 historical event
+50 0 0 0 1 0 1
+20000 0 1 1 10 0 1
+//Number of independent loci [chromosome] 
+20000 0
+//Per chromosome: Number of linkage blocks
+1
+//per Block: data type, num loci, rec. rate,  mut rate and transition rate
+DNA  150  0.0 2.2E-9 0.33
+
